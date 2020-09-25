@@ -45,5 +45,5 @@ if (query.magicCode !== undefined) {
 
 viewer.objects.queueAllAssetsLoaded(function() {
     viewer.startRender()
-    viewer.potree.pointBudget=10000000
+    viewer.potree.pointBudget=1000000
 })
