@@ -18,11 +18,18 @@ var button = document.getElementById("code-submit")
 var inputElem = document.getElementById("code-input")
 var titleElem = document.getElementById("title")
 
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    // true for mobile device
+    titleElem.textContent="Mobile devices not supported for now."
+    inputElem.style.visibility = "collapse"
+    button.style.visibility = "collapse"
+}
+
 if (query.magicCode !== undefined) {
-    overlay.style.visibility = "hidden"
-    overlay.style.pointerEvents = "none"
     viewer.importNewJSON(query.magicCode)
 } else {
+    overlay.style.pointerEvents = "auto"
+    overlay.style.visibility = "visible"
     button.addEventListener("click", ()=>{
         if (inputElem.value==="Go away!") {
             titleElem.textContent="Ok."
